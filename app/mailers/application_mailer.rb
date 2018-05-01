@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  #helper MountainView::ComponentHelper
+  default from: 'info@placecal.org'
   layout 'mailer'
 end

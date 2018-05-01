@@ -1,0 +1,33 @@
+<style>
+<!-- Could do with using an email specific stylesheet instead
+    Also need to inline the font for good measure -->
+<%= Rails.application.assets.find_asset('admin.css').to_s %>
+<%= Rails.application.assets.find_asset('application.css').to_s %>
+.light {
+    background-color: #fffcf0;
+}
+</style>
+    <div class="pres hero">
+        <div class="c c--narrow">
+            <p>
+            <span>Hi, <%= @user.first_name %></span>
+            </p>
+        </div>
+    </div>
+<div class="pres light">
+    <div class="c c--narrow">
+    <p class="p--alt center">
+      Here are the events you have listed for next week.</p>
+    <p>Please <%= link_to "click here", @url %> to verify they are correct</p>
+    </div>
+</div>
+<div class="pres pres--alt">
+    <div class="c c--lg-space-after">
+    <%= render "events/event_list", 
+    events: @events,
+    pointer: @current_day,
+    period: "week",
+    sort: @sort
+  %>
+    </div>
+</div>

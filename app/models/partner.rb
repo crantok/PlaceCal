@@ -27,6 +27,8 @@ class Partner < ApplicationRecord
   #   errors.add(:_, "Select at least one Turf") if turf_ids.blank?
   # end
 
+  scope :of_user, ->(user) { where(user: user) }
+
   def permalink
     "https://placecal.org/partners/#{id}"
   end
